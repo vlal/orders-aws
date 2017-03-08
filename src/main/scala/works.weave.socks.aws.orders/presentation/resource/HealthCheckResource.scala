@@ -34,7 +34,7 @@ class HealthCheckResource(dynamoConnection : DynamoConfiguration) {
     //try {
     val table = dynamoConnection.client.describeTable("orders")
     //} catch {
-      //case unknown : Throwable => dynamoDBHealth("status") = "err"
+    //case unknown : Throwable => dynamoDBHealth("status") = "err"
     //}
 
     val map = Map("health" -> Array(ordersHealth, dynamoDBHealth))
