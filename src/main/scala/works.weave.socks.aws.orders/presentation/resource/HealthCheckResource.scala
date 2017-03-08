@@ -31,11 +31,11 @@ class HealthCheckResource(dynamoConnection : DynamoConfiguration) {
       "status" -> "OK",
       "time" -> dateNow)
 
-    try {
-      val table = dynamoConnection.client.describeTable("orders")
-    } catch {
-      case unknown : Throwable => dynamoDBHealth("status") = "err"
-    }
+    //try {
+    val table = dynamoConnection.client.describeTable("orders")
+    //} catch {
+      //case unknown : Throwable => dynamoDBHealth("status") = "err"
+    //}
 
     val map = Map("health" -> Array(ordersHealth, dynamoDBHealth))
     Log.info("health check completed")
